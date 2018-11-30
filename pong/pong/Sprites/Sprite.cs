@@ -52,8 +52,8 @@ namespace pong.Sprites
 
         protected bool IsTouchingRight(Sprite sprite)
         {
-            return this.Rectangle.Left + this.Velocity.X > sprite.Rectangle.Right &&
-                   this.Rectangle.Right < sprite.Rectangle.Right &&
+            return this.Rectangle.Left + this.Velocity.X < sprite.Rectangle.Right &&
+                   this.Rectangle.Right > sprite.Rectangle.Right &&
                    this.Rectangle.Bottom > sprite.Rectangle.Top &&
                    this.Rectangle.Top < sprite.Rectangle.Bottom;
         }
@@ -68,8 +68,8 @@ namespace pong.Sprites
 
         protected bool IsTouchingBottom(Sprite sprite)
         {
-            return this.Rectangle.Top + this.Velocity.Y > sprite.Rectangle.Bottom &&
-                   this.Rectangle.Bottom < sprite.Rectangle.Bottom &&
+            return this.Rectangle.Top + this.Velocity.Y < sprite.Rectangle.Bottom &&
+                   this.Rectangle.Bottom > sprite.Rectangle.Bottom &&
                    this.Rectangle.Right > sprite.Rectangle.Left &&
                    this.Rectangle.Left < sprite.Rectangle.Right;
         }

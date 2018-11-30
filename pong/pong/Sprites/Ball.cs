@@ -65,7 +65,22 @@ namespace pong.Sprites
                     this.Velocity.Y = -this.Velocity.Y;
             }
 
-            //__________
+            if (Position.Y <= 0 || Position.Y + _texture.Height >= Game1.ScreenHeight)
+                Velocity.Y = -Velocity.Y;
+
+            if (Position.X <= 0) // left side, player 2
+            {
+                Score.Score2++;
+                Restart();
+            }
+
+            if (Position.X + _texture.Width >= Game1.ScreenWidth) // right side, player 1
+            {
+                Score.Score1++;
+                Restart();
+            }
+
+            Position += Velocity * Speed;
         }
 
         public void Restart()
