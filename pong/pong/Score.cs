@@ -10,6 +10,12 @@ namespace pong
 {
     public class Score
     {
+
+
+        public static int ScreenWidth;
+        public static int ScreenHeight;
+
+
         public int Score1;
         public int Score2;
 
@@ -23,7 +29,7 @@ namespace pong
         public void Draw(SpriteBatch spriteBatch)
         {
             spriteBatch.DrawString(_font, Score1.ToString(), new Vector2(320, 70), Color.White);
-            spriteBatch.DrawString(_font, Score2.ToString(), new Vector2(430, 70), Color.White);
+            spriteBatch.DrawString(_font, Score2.ToString(), new Vector2((ScreenWidth - 320), 70), Color.White);
 
         }
     }

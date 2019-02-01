@@ -23,6 +23,9 @@ namespace pong
         private Score _score;
         private List<Sprite> _sprites;
 
+        //
+        private Texture2D background;
+
         public Game1()
         {
             graphics = new GraphicsDeviceManager(this);
@@ -61,11 +64,13 @@ namespace pong
             var batTexture = Content.Load<Texture2D>("pong bat");
             var ballTexture = Content.Load<Texture2D>("pong ball");
 
+            background = Content.Load<Texture2D>("pong background");
+
             _score = new Score(Content.Load<SpriteFont>("Font"));
 
             _sprites = new List<Sprite>()
             {
-                new Sprite(Content.Load<Texture2D>("pong background")),
+                
                 new Bat(batTexture)
                 {
                     Position = new Vector2(20, (ScreenHeight / 2) - (batTexture.Height / 2)),
@@ -128,10 +133,17 @@ namespace pong
 
             spriteBatch.Begin();
 
+            spriteBatch.Draw(background,
+                new Rectangle(0, 0, ScreenWidth, ScreenHeight),
+                new Rectangle(0, 0, background.Width, background.Height),
+                Color.White);
+
             foreach (var sprite in _sprites)
                 sprite.Draw(spriteBatch);
 
             _score.Draw(spriteBatch);
+
+            
 
             spriteBatch.End();
 
