@@ -28,8 +28,8 @@ namespace pong
 
         public void Draw(SpriteBatch spriteBatch)
         {
-            spriteBatch.DrawString(_font, Score1.ToString(), new Vector2(320, 70), Color.White);
-            spriteBatch.DrawString(_font, Score2.ToString(), new Vector2((ScreenWidth - 320), 70), Color.White);
+            spriteBatch.DrawString(_font, Score1.ToString(), new Vector2(Game1.ScreenWidth/2 - 56, 70), Color.White);
+            spriteBatch.DrawString(_font, Score2.ToString(), new Vector2((Game1.ScreenWidth/2 + 20), 70), Color.White);
 
         }
     }
